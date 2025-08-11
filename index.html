@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberDude | Digital Shadow</title>
+    <title>SUJAL EXPOSE | Cyber Dossier</title>
     <style>
-        /* Global Styles */
+        /* Perfect Hacker Theme */
         * {
             margin: 0;
             padding: 0;
@@ -13,318 +13,337 @@
             font-family: 'Courier New', monospace;
         }
         
-        body {
+        body, html {
+            width: 100%;
+            height: 100%;
             background-color: #0a0a0a;
             color: #00ff00;
-            overflow-x: hidden;
-        }
-        
-        /* Terminal-like Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #00ff00;
-            border-radius: 5px;
-        }
-        
-        /* Header */
-        header {
-            padding: 20px;
-            border-bottom: 1px solid #00ff00;
-            position: relative;
-        }
-        
-        .header-text {
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Profile Section */
-        .profile {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 50px;
-            align-items: center;
-        }
-        
-        .profile-image {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-        }
-        
-        .profile-image img {
-            width: 100%;
-            border: 2px solid #00ff00;
-            filter: grayscale(50%) contrast(120%);
-            transition: all 0.3s ease;
-        }
-        
-        .profile-image img:hover {
-            filter: grayscale(0%) contrast(100%);
-            box-shadow: 0 0 20px #00ff0080;
-        }
-        
-        .profile-info {
-            flex: 2;
-            min-width: 300px;
-        }
-        
-        .profile-info h2 {
-            margin-bottom: 20px;
-            color: #00ff00;
-            font-size: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .profile-info h2::after {
-            content: '_';
-            animation: cursor 1s infinite;
-        }
-        
-        @keyframes cursor {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-        
-        /* Stats Section */
-        .stats {
-            margin: 50px 0;
-        }
-        
-        .stats h3 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .stat-item {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .stat-item::before {
-            content: '>';
-            position: absolute;
-            left: 0;
-            color: #00ff00;
-        }
-        
-        /* Gallery */
-        .gallery {
-            margin: 50px 0;
-        }
-        
-        .gallery h3 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .gallery-item {
-            border: 1px solid #00ff00;
-            padding: 10px;
-            transition: all 0.3s ease;
-            height: 250px;
             overflow: hidden;
         }
         
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(80%) contrast(120%);
-            transition: all 0.3s ease;
-        }
-        
-        .gallery-item:hover {
-            box-shadow: 0 0 20px #00ff0080;
-        }
-        
-        .gallery-item:hover img {
-            filter: grayscale(0%) contrast(100%);
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #00ff00;
-            margin-top: 50px;
-        }
-        
-        .matrix-rain {
+        /* Matrix Rain */
+        #matrix {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.1;
-            pointer-events: none;
+            opacity: 0.15;
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .profile {
-                flex-direction: column;
-            }
-            
-            .profile-image, .profile-info {
-                flex: none;
-                width: 100%;
-            }
+        /* Header */
+        header {
+            padding: 3vh 0;
+            text-align: center;
+            height: 20vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .header-text {
+            font-size: 5vh;
+            animation: blink 1s infinite;
+            text-shadow: 0 0 2vh #00ff00;
+        }
+        
+        .subtitle {
+            font-size: 3vh;
+            margin-top: 2vh;
+            color: #00aa00;
+            text-shadow: 0 0 1vh #00ff00;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            height: 70vh;
+            padding: 0 5vw;
+            gap: 3vh;
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3vw;
+            height: 100%;
+        }
+        
+        /* Boxes */
+        .stat-box {
+            border: 0.4vh solid #00ff00;
+            padding: 3vh;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            background: rgba(0, 20, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .stat-box:hover {
+            box-shadow: 0 0 4vh #00ff00;
+            transform: translateY(-1vh);
+            background: rgba(0, 30, 0, 0.2);
+        }
+        
+        .stat-box::before {
+            content: '➤';
+            position: absolute;
+            left: 2vw;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00ff00;
+            font-size: 4vh;
+        }
+        
+        .stat-box h4 {
+            margin-left: 6vw;
+            color: #00ff00;
+            font-size: 3.5vh;
+            margin-bottom: 1vh;
+        }
+        
+        .stat-box p {
+            margin-left: 6vw;
+            color: #00dd00;
+            font-size: 2.5vh;
+        }
+        
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.97);
+            z-index: 100;
+            padding: 5vh;
+        }
+        
+        .modal-content {
+            background: #0a0a0a;
+            border: 0.4vh solid #00ff00;
+            width: 80%;
+            height: 80%;
+            margin: 5% auto;
+            padding: 5vh;
+            position: relative;
+            box-shadow: 0 0 5vh #00ff00;
+            overflow: auto;
+        }
+        
+        .close {
+            color: #00ff00;
+            position: absolute;
+            right: 3vh;
+            top: 2vh;
+            font-size: 4vh;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            text-shadow: 0 0 2vh #00ff00;
+        }
+        
+        .log-entry {
+            margin: 3vh 0;
+            padding-left: 3vh;
+            border-left: 0.4vh solid #00ff00;
+            font-size: 2.5vh;
+        }
+        
+        .log-entry p {
+            margin: 2vh 0;
+        }
+        
+        /* Hidden Footer */
+        footer {
+            display: none;
+        }
+        
+        /* Title Styles */
+        h2 {
+            font-size: 4vh;
+            margin-bottom: 3vh;
+            color: #00ff00;
+            text-shadow: 0 0 1vh #00ff00;
+        }
+        
+        h3 {
+            font-size: 3vh;
+            margin-bottom: 2vh;
         }
     </style>
 </head>
 <body>
-    <!-- Matrix Rain Background Effect -->
-    <canvas id="matrix" class="matrix-rain"></canvas>
+    <!-- Matrix Rain -->
+    <canvas id="matrix"></canvas>
     
     <header>
-        <h1 class="header-text">root@cyberdude:~# whoami</h1>
+        <h1 class="header-text">root@sujal-expose~ SUJAL EXPOSED!</h1>
+        <div class="subtitle">EXPOSING SUJAL</div>
     </header>
     
-    <div class="container">
-        <section class="profile">
-            <div class="profile-image">
-                <!-- Replace with your image path -->
-                <img src="https://via.placeholder.com/500x500/00ff00/000000?text=CyberDude" alt="Profile Image">
+    <div class="main-grid">
+        <div class="row">
+            <div class="stat-box" id="hairBox">
+                <h4>SUJAL TOUCHED HAIR</h4>
+                <p>Click to view timestamps</p>
             </div>
-            <div class="profile-info">
-                <h2>THE CYBER DUDE</h2>
-                <p>[ERROR: DESCRIPTION TOO POWERFUL TO DISPLAY]</p>
-                <p>> Accessing hidden data...</p>
-                <p>> Decryption in progress...</p>
-                <p>> 78% complete...</p>
+            
+            <div class="stat-box" id="whatsappBox">
+                <h4>WHATSAPP CHATS</h4>
+                <p>Click to view cringe</p>
             </div>
-        </section>
+        </div>
         
-        <section class="stats">
-            <h3>SYSTEM STATS</h3>
-            <div class="stat-item">Name: [REDACTED]</div>
-            <div class="stat-item">Alias: Cyber Dude</div>
-            <div class="stat-item">Skills: Hacking, Coding, Stealth</div>
-            <div class="stat-item">Level: 99</div>
-            <div class="stat-item">Status: Online</div>
-            <div class="stat-item">Location: [ENCRYPTED]</div>
-            <div class="stat-item">IP: 127.0.0.1</div>
-        </section>
-        
-        <section class="gallery">
-            <h3>DATA FILES</h3>
-            <div class="gallery-grid">
-                <!-- Replace with your images -->
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x300/000000/00ff00?text=HACKING" alt="Hacking">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x300/000000/00ff00?text=CODING" alt="Coding">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x300/000000/00ff00?text=STEALTH" alt="Stealth">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x300/000000/00ff00?text=PROJECT" alt="Project">
-                </div>
+        <div class="row">
+            <div class="stat-box" id="tiffinBox">
+                <h4>TIFFIN</h4>
+                <p>Click for food chemistry</p>
             </div>
-        </section>
+            
+            <div class="stat-box" id="chemistryBox">
+                <h4>SUJAL CHEMISTRY WITH GIRLS</h4>
+                <p>Click for romantic logs</p>
+            </div>
+        </div>
     </div>
     
-    <footer>
-        <p>SYSTEM MESSAGE: This terminal will self-destruct in 10...</p>
-    </footer>
+    <!-- Modals -->
+    <div id="hairModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('hairModal')">&times;</span>
+            <h2>HAIR TOUCHING LOGS</h2>
+            <p>➤ Accessing encrypted records...</p>
+            <div class="log-entry">
+                <h3>Timestamps:</h3>
+                <p>July 8 = 11:30</p>
+                <p>July 10 = 12:47</p>
+                <p>July 19 = 1:32</p>
+                <p>July 29 = 9:05</p>
+                <p>August 11 = 1:13</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="whatsappModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('whatsappModal')">&times;</span>
+            <h2>WHATSAPP CRINGE LOGS</h2>
+            <p>➤ Accessing chat history...</p>
+            <div class="log-entry">
+                <h3>Conversation:</h3>
+                <p><strong>Girl:</strong> what will u do if i die</p>
+                <p><strong>Sujal:</strong> if u will die, i will also die</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="tiffinModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('tiffinModal')">&times;</span>
+            <h2>TIFFIN CHEMISTRY</h2>
+            <p>➤ Accessing cafeteria logs...</p>
+            <div class="log-entry">
+                <h3>August 7:</h3>
+                <p>The girl brought chocolate biscuits and gave them to Sujal to eat</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="chemistryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('chemistryModal')">&times;</span>
+            <h2>ROMANTIC CHEMISTRY LOGS</h2>
+            <p>➤ Accessing relationship database...</p>
+            <div class="log-entry">
+                <h3>August 8th:</h3>
+                <p>The girl gave a beautiful bracelet to Sujal and he was blushing</p>
+                <p>After she gave him the black heart bracelet, he now always wears it to school</p>
+                <p>They used to chat till 1 AM every night!</p>
+            </div>
+        </div>
+    </div>
     
     <script>
-        // Matrix Rain Effect
+        // Matrix Rain
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
         
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const nums = '0123456789';
-        
-        const alphabet = katakana + latin + nums;
-        
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        
-        const rainDrops = [];
-        
-        for (let x = 0; x < columns; x++) {
-            rainDrops[x] = 1;
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
         
-        const draw = () => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        
+        const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+        const fontSize = 18;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        
+        for(let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * -100;
+        }
+        
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
             ctx.fillStyle = '#00ff00';
             ctx.font = fontSize + 'px monospace';
             
-            for (let i = 0; i < rainDrops.length; i++) {
-                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+            for(let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
                 
-                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    rainDrops[i] = 0;
+                if(drops[i] * fontSize > canvas.height || Math.random() > 0.975) {
+                    drops[i] = 0;
                 }
-                rainDrops[i]++;
+                drops[i]++;
             }
-        };
+        }
         
-        setInterval(draw, 30);
+        setInterval(draw, 50);
         
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
         
-        // Terminal-like typing effect
-        const elements = document.querySelectorAll('.profile-info p, .stat-item');
-        elements.forEach((el, index) => {
-            const text = el.textContent;
-            el.textContent = '';
-            
-            setTimeout(() => {
-                let i = 0;
-                const typing = setInterval(() => {
-                    if (i < text.length) {
-                        el.textContent += text.charAt(i);
-                        i++;
-                    } else {
-                        clearInterval(typing);
-                    }
-                }, 50);
-            }, index * 500);
-        });
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        // Event listeners
+        document.getElementById('hairBox').addEventListener('click', () => openModal('hairModal'));
+        document.getElementById('whatsappBox').addEventListener('click', () => openModal('whatsappModal'));
+        document.getElementById('tiffinBox').addEventListener('click', () => openModal('tiffinModal'));
+        document.getElementById('chemistryBox').addEventListener('click', () => openModal('chemistryModal'));
+        
+        // Close when clicking outside
+        window.onclick = function(event) {
+            if(event.target.className === 'modal') {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
     </script>
 </body>
 </html>
