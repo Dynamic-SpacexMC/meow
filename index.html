@@ -21,7 +21,7 @@
             overflow: hidden;
         }
         
-        /* Matrix Rain */
+        /* Enhanced Matrix Rain */
         #matrix {
             position: fixed;
             top: 0;
@@ -29,7 +29,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.15;
+            opacity: 0.2;
         }
         
         /* Header */
@@ -166,6 +166,26 @@
         
         .log-entry p {
             margin: 2vh 0;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+            animation-delay: calc(var(--delay) * 0.2s);
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .typing-text {
+            border-right: 0.3em solid #00ff00;
+            animation: blink-caret 0.75s step-end infinite;
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff00; }
         }
         
         /* Hidden Footer */
@@ -188,7 +208,7 @@
     </style>
 </head>
 <body>
-    <!-- Matrix Rain -->
+    <!-- Enhanced Matrix Rain -->
     <canvas id="matrix"></canvas>
     
     <header>
@@ -227,14 +247,14 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('hairModal')">&times;</span>
             <h2>HAIR TOUCHING LOGS</h2>
-            <p>➤ Accessing encrypted records...</p>
-            <div class="log-entry">
+            <p class="typing-text" id="hairText1">➤ Accessing encrypted records...</p>
+            <div class="log-entry" id="hairLogs">
                 <h3>Timestamps:</h3>
-                <p>July 8 = 11:30</p>
-                <p>July 10 = 12:47</p>
-                <p>July 19 = 1:32</p>
-                <p>July 29 = 9:05</p>
-                <p>August 11 = 1:13</p>
+                <p style="--delay:1">July 8 = 11:30</p>
+                <p style="--delay:2">July 10 = 12:47</p>
+                <p style="--delay:3">July 19 = 1:32</p>
+                <p style="--delay:4">July 29 = 9:05</p>
+                <p style="--delay:5">August 11 = 1:13</p>
             </div>
         </div>
     </div>
@@ -243,11 +263,11 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('whatsappModal')">&times;</span>
             <h2>WHATSAPP CRINGE LOGS</h2>
-            <p>➤ Accessing chat history...</p>
-            <div class="log-entry">
+            <p class="typing-text" id="whatsappText1">➤ Accessing chat history...</p>
+            <div class="log-entry" id="whatsappLogs">
                 <h3>Conversation:</h3>
-                <p><strong>Girl:</strong> what will u do if i die</p>
-                <p><strong>Sujal:</strong> if u will die, i will also die</p>
+                <p style="--delay:1"><strong>Girl:</strong> what will u do if i die</p>
+                <p style="--delay:2"><strong>Sujal:</strong> if u will die, i will also die</p>
             </div>
         </div>
     </div>
@@ -256,10 +276,10 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('tiffinModal')">&times;</span>
             <h2>TIFFIN CHEMISTRY</h2>
-            <p>➤ Accessing cafeteria logs...</p>
-            <div class="log-entry">
+            <p class="typing-text" id="tiffinText1">➤ Accessing cafeteria logs...</p>
+            <div class="log-entry" id="tiffinLogs">
                 <h3>August 7:</h3>
-                <p>The girl brought chocolate biscuits and gave them to Sujal to eat</p>
+                <p style="--delay:1">The girl brought chocolate biscuits and gave them to Sujal to eat</p>
             </div>
         </div>
     </div>
@@ -268,18 +288,18 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('chemistryModal')">&times;</span>
             <h2>SUJAL EXPOSED!</h2>
-            <p>➤ Accessing relationship database...</p>
-            <div class="log-entry">
+            <p class="typing-text" id="chemistryText1">➤ Accessing relationship database...</p>
+            <div class="log-entry" id="chemistryLogs">
                 <h3>August 8th:</h3>
-                <p>The girl gave a beautiful bracelet to Sujal and he was blushing</p>
-                <p>After she gave him the black heart bracelet, he now always wears it to school</p>
-                <p>They used to chat till 1 AM every night!</p>
+                <p style="--delay:1">The girl gave a beautiful bracelet to Sujal and he was blushing</p>
+                <p style="--delay:2">After she gave him the black heart bracelet, he now always wears it to school</p>
+                <p style="--delay:3">They used to chat till 1 AM every night!</p>
             </div>
         </div>
     </div>
     
     <script>
-        // Matrix Rain
+        // Enhanced Matrix Rain
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
         
@@ -291,7 +311,11 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
         
-        const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const chars = katakana + latin + nums;
+        
         const fontSize = 18;
         const columns = canvas.width / fontSize;
         const drops = [];
@@ -301,7 +325,7 @@
         }
         
         function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
             ctx.fillStyle = '#00ff00';
@@ -318,12 +342,51 @@
             }
         }
         
-        setInterval(draw, 50);
+        setInterval(draw, 33);
         
-        // Modal functions
+        // Typewriter effect
+        function typeWriter(element, text, speed, callback) {
+            let i = 0;
+            element.textContent = "";
+            element.style.display = "inline-block";
+            
+            function typing() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                } else if (callback) {
+                    callback();
+                }
+            }
+            typing();
+        }
+        
+        // Modal functions with typing effects
         function openModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
+            const modal = document.getElementById(modalId);
+            modal.style.display = "block";
             document.body.style.overflow = "hidden";
+            
+            // Reset all animations
+            const entries = modal.querySelectorAll('.log-entry p');
+            entries.forEach(p => {
+                p.style.opacity = '0';
+                p.style.animation = 'none';
+                void p.offsetWidth; // Trigger reflow
+                p.style.animation = 'fadeIn 0.5s forwards';
+                p.style.animationDelay = p.getAttribute('style')?.includes('--delay') 
+                    ? `calc(${p.style.getPropertyValue('--delay')} * 0.2s)`
+                    : '0s';
+            });
+            
+            // Animate the first line
+            const firstLine = modal.querySelector('.typing-text');
+            if (firstLine) {
+                typeWriter(firstLine, firstLine.textContent, 50, () => {
+                    firstLine.classList.remove('typing-text');
+                });
+            }
         }
         
         function closeModal(modalId) {
