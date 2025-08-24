@@ -292,6 +292,35 @@
             font-size: 3vh;
             margin-bottom: 2vh;
         }
+
+        .github-guide {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #00ff00;
+            background: rgba(0, 30, 0, 0.2);
+            font-size: 2vh;
+        }
+        
+        .github-guide h3 {
+            color: #00ff00;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 10px;
+        }
+        
+        .github-guide ol {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        .github-guide li {
+            margin-bottom: 10px;
+        }
+        
+        .github-guide code {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
     </style>
 </head>
 <body>
@@ -344,29 +373,58 @@
             <p class="typing-text">➤ Accessing encrypted image repository...</p>
             
             <div class="image-grid">
+                <!-- Replace these image paths with your actual image paths on GitHub -->
                 <div class="image-slot">
-                    <img src="https://placehold.co/600x400/00ff00/000000/png?text=Image+1" alt="Example Image 1">
+                    <img src="images/image1.jpg" alt="Sujal Evidence 1">
                 </div>
-                <div class="image-slot">Image Slot 2<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 3<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 4<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 5<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 6<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 7<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 8<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 9<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 10<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 11<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 12<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
-                <div class="image-slot">Image Slot 13<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">
+                    <img src="images/image2.jpg" alt="Sujal Evidence 2">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image3.jpg" alt="Sujal Evidence 3">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image4.jpg" alt="Sujal Evidence 4">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image5.jpg" alt="Sujal Evidence 5">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image6.jpg" alt="Sujal Evidence 6">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image7.jpg" alt="Sujal Evidence 7">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image8.jpg" alt="Sujal Evidence 8">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image9.jpg" alt="Sujal Evidence 9">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image10.jpg" alt="Sujal Evidence 10">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image11.jpg" alt="Sujal Evidence 11">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image12.jpg" alt="Sujal Evidence 12">
+                </div>
+                <div class="image-slot">
+                    <img src="images/image13.jpg" alt="Sujal Evidence 13">
+                </div>
             </div>
             
-            <div style="margin-top: 30px; padding: 15px; border: 1px solid #00ff00; background: rgba(0, 30, 0, 0.2);">
-                <h3>How to Add Your Images:</h3>
-                <p>1. Upload your images to a service like ImgBB, Imgur, or Postimages</p>
-                <p>2. Copy the direct image URL</p>
-                <p>3. Replace the placeholder image URLs in the code with your own</p>
-                <p>4. Replace the text placeholders with your images</p>
+            <div class="github-guide">
+                <h3>GitHub Hosting Instructions:</h3>
+                <ol>
+                    <li>Create a folder named <code>images</code> in your GitHub repository</li>
+                    <li>Upload your images to this folder</li>
+                    <li>Name them exactly as shown above (image1.jpg, image2.jpg, etc.)</li>
+                    <li>Make sure your image extensions match (.jpg, .png, etc.)</li>
+                    <li>The website will automatically load your images once uploaded</li>
+                </ol>
+                <p><strong>Note:</strong> If you use different filenames, update the <code>src</code> attributes in the image tags above.</p>
             </div>
         </div>
     </div>
