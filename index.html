@@ -18,7 +18,7 @@
             height: 100%;
             background-color: #0a0a0a;
             color: #00ff00;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         
         /* Enhanced Matrix Rain */
@@ -119,6 +119,104 @@
             font-size: 2.5vh;
         }
         
+        /* Success Section */
+        .success-section {
+            margin: 5vh auto;
+            text-align: center;
+            padding: 2vh;
+            border: 0.4vh dashed #00ff00;
+            width: 80%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .success-section:hover {
+            background: rgba(0, 30, 0, 0.2);
+            box-shadow: 0 0 3vh #00ff00;
+        }
+        
+        .success-title {
+            font-size: 4vh;
+            margin-bottom: 2vh;
+        }
+        
+        .moai-emoji {
+            font-size: 8vh;
+            filter: grayscale(1) brightness(0.8) sepia(1) hue-rotate(60deg) saturate(5);
+        }
+        
+        /* Image Gallery Modal */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.97);
+            z-index: 1000;
+            padding: 5vh;
+            overflow-y: auto;
+        }
+        
+        .gallery-content {
+            background: #0a0a0a;
+            border: 0.4vh solid #00ff00;
+            width: 90%;
+            margin: 2% auto;
+            padding: 5vh;
+            position: relative;
+            box-shadow: 0 0 5vh #00ff00;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            font-size: 4vh;
+            margin-bottom: 3vh;
+            color: #00ff00;
+            text-shadow: 0 0 1vh #00ff00;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2vh;
+            margin-top: 3vh;
+        }
+        
+        .image-slot {
+            height: 200px;
+            border: 0.2vh dashed #00ff00;
+            background: rgba(0, 20, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00aa00;
+            font-size: 2vh;
+            text-align: center;
+            padding: 1vh;
+            transition: all 0.3s;
+        }
+        
+        .image-slot:hover {
+            background: rgba(0, 30, 0, 0.3);
+            border: 0.2vh solid #00ff00;
+        }
+        
+        .close {
+            color: #00ff00;
+            position: absolute;
+            right: 3vh;
+            top: 2vh;
+            font-size: 4vh;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .close:hover {
+            text-shadow: 0 0 2vh #00ff00;
+        }
+        
         /* Modals */
         .modal {
             display: none;
@@ -142,19 +240,6 @@
             position: relative;
             box-shadow: 0 0 5vh #00ff00;
             overflow: auto;
-        }
-        
-        .close {
-            color: #00ff00;
-            position: absolute;
-            right: 3vh;
-            top: 2vh;
-            font-size: 4vh;
-            cursor: pointer;
-        }
-        
-        .close:hover {
-            text-shadow: 0 0 2vh #00ff00;
         }
         
         .log-entry {
@@ -186,11 +271,6 @@
         @keyframes blink-caret {
             from, to { border-color: transparent }
             50% { border-color: #00ff00; }
-        }
-        
-        /* Hidden Footer */
-        footer {
-            display: none;
         }
         
         /* Title Styles */
@@ -238,6 +318,38 @@
             <div class="stat-box" id="chemistryBox">
                 <h4>SUJAL Exposed!</h4>
                 <p>Click for Secret logs</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Section -->
+    <div class="success-section" id="successSection">
+        <div class="success-title">SUCCESS</div>
+        <div class="moai-emoji">🗿</div>
+        <p>Click to view image collection</p>
+    </div>
+    
+    <!-- Image Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal">
+        <span class="close" onclick="closeModal('galleryModal')">&times;</span>
+        <div class="gallery-content">
+            <h2 class="gallery-title">IMAGE COLLECTION DATABASE</h2>
+            <p class="typing-text">➤ Accessing encrypted image repository...</p>
+            
+            <div class="image-grid">
+                <div class="image-slot">Image Slot 1<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 2<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 3<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 4<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 5<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 6<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 7<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 8<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 9<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 10<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 11<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 12<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
+                <div class="image-slot">Image Slot 13<br><span style="font-size: 1.5vh;">(Upload your image)</span></div>
             </div>
         </div>
     </div>
@@ -399,10 +511,11 @@
         document.getElementById('whatsappBox').addEventListener('click', () => openModal('whatsappModal'));
         document.getElementById('tiffinBox').addEventListener('click', () => openModal('tiffinModal'));
         document.getElementById('chemistryBox').addEventListener('click', () => openModal('chemistryModal'));
+        document.getElementById('successSection').addEventListener('click', () => openModal('galleryModal'));
         
         // Close when clicking outside
         window.onclick = function(event) {
-            if(event.target.className === 'modal') {
+            if(event.target.className === 'modal' || event.target.className === 'gallery-modal') {
                 event.target.style.display = "none";
                 document.body.style.overflow = "auto";
             }
